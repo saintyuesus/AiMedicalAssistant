@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  @apply bg-ink-950 text-slate-200 font-sans antialiased;
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Markdown rendering inside assistant messages */
+.prose-medical {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.prose-medical p {
+  margin: 0 0 0.75rem 0;
+}
+.prose-medical h1,
+.prose-medical h2,
+.prose-medical h3 {
+  color: #e2e8f0;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem 0;
+}
+.prose-medical h1 {
+  font-size: 1.25rem;
+}
+.prose-medical h2 {
+  font-size: 1.1rem;
+}
+.prose-medical h3 {
+  font-size: 1rem;
+}
+.prose-medical ul,
+.prose-medical ol {
+  margin: 0 0 0.75rem 0;
+  padding-left: 1.5rem;
+}
+.prose-medical ul {
+  list-style: disc;
+}
+.prose-medical ol {
+  list-style: decimal;
+}
+.prose-medical li {
+  margin: 0.25rem 0;
+}
+.prose-medical strong {
+  color: #f1f5f9;
+  font-weight: 600;
+}
+.prose-medical code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.prose-medical a {
+  color: #2fbaa0;
+  text-decoration: underline;
+}
+.prose-medical blockquote {
+  border-left: 3px solid #13a18a;
+  padding-left: 0.75rem;
+  margin: 0.75rem 0;
+  color: #94a3b8;
+}
+.prose-medical table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+}
+.prose-medical th,
+.prose-medical td {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.prose-medical th {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Streaming cursor */
+.streaming-cursor::after {
+  content: '▋';
+  margin-left: 1px;
+  color: #13a18a;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Glass panel */
+.glass {
+  background: rgba(20, 24, 33, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
