@@ -1,3 +1,14 @@
+/// <reference types="vite/client" />
+
+interface ImportMetaEnv {
+  /** 部署时指向 Cloudflare Worker 地址，如 https://aima-backend.<子域>.workers.dev/api */
+  readonly VITE_API_BASE?: string
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv
+}
+
 // Browser Web Speech API type declarations
 interface SpeechRecognitionAlternative {
   transcript: string

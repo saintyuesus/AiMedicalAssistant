@@ -1,6 +1,7 @@
 import type { HealthProfile, SimpleChatMessage, Recipe } from './types'
 
-const API_BASE = 'http://localhost:8000/api'
+// 本地开发默认 http://localhost:8000/api；部署时通过 VITE_API_BASE 指向 Cloudflare Worker
+const API_BASE = import.meta.env.VITE_API_BASE ?? 'http://localhost:8000/api'
 
 export interface AppConfig {
   llm_enabled: boolean

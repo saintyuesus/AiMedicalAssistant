@@ -1,0 +1,14 @@
+# Render 蓝图（backend 目录下的 FastAPI 服务）
+# 用法：https://render.com/deploy?repo=https://github.com/saintyuesus/AiMedicalAssistant
+services:
+  - type: web
+    name: ai-medical-assistant-backend
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: DASHSCOPE_API_KEY
+        sync: false # 可选：不填则后端运行在离线降级模式（内置医学知识库）
